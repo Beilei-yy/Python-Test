@@ -8,3 +8,13 @@ del p  #删除p对象
 print("这是倒数第二行代码")
 print("这是最后一行代码")
 
+# 面向对象三大要素：封装，多态，继承
+# 封装
+class Person:
+    name = "ding"     #类属性
+pe = Person()
+print(pe.name)
+Person.name = 'GG'
+print(Person.name)
+
+
