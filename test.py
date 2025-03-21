@@ -7,3 +7,4 @@ p = person()
 del p  #删除p对象
 print("这是倒数第二行代码")
 print("这是最后一行代码")
+
