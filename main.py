@@ -1476,7 +1476,7 @@
 #         print('这是__init__()函数')
 # te = Test()
 
-class Person:     #类名为 人类
+class Person:  # 类名为 人类
     # def __init__(self):
     #     self.name = 'DD'
     #     self.age = 18
@@ -1485,7 +1485,7 @@ class Person:     #类名为 人类
     #     print(f'{self.name}在打双影奇境')
     # def introduce(self):
     #     print(f'{self.name}的年龄是{self.age},身高为{self.hight}cm')
-    def __init__(self,name,age,hight):
+    def __init__(self, name, age, hight):
         self.name = name
         self.age = age
         self.hight = hight
@@ -1496,17 +1496,273 @@ class Person:     #类名为 人类
     def introduce(self):
         print(f'{self.name}的年龄是{self.age},身高为{self.hight}cm')
 
+
 # 实例化对象
 # pe = Person()
-pe = Person('cc',28,183)
-pe.play()
-pe.introduce()
-# 实例化第二个对象
-pe2 = Person('mm',22,165)
-pe2.play()
-pe2.introduce()
-# 实例化第三个对象
-pe3 = Person(77,21,165)
-pe3.play()
-pe3.introduce()
+# pe = Person('cc',28,183)
+# pe.play()
+# pe.introduce()
+# # 实例化第二个对象
+# pe2 = Person('mm',22,165)
+# pe2.play()
+# pe2.introduce()
+# # 实例化第三个对象
+# pe3 = Person(77,21,165)
+# pe3.play()
+# pe3.introduce()
+#
+# class person:
+#     def __init__(self):
+#         print('嗨，我是人类')
+#     def __del__(self):
+#         print('被销毁的人偶')
+# p = person()
+# del p  #删除p对象
+# print("这是倒数第二行代码")
+# print("这是最后一行代码")
+#
+# # 面向对象三大要素：封装，多态，继承
+# # 封装
+# class Person:
+#     name = "ding"     #类属性
+# pe = Person()
+# print(pe.name)
+# Person.name = 'GG'
+# print(Person.name)
 
+# 隐藏属性（私有权限），只允许在类的内部使用，无法通过对象访问
+# 在属性名或者方法名前加上双下划线__
+# class Person:
+#     name = "lily"             #类属性
+#     __age= 28                 #隐藏属性
+#     def introduce(self):       #实力方法
+#         print(f'{Person.name}的年龄是{Person.__age}')      # 在实例方法中访问类属性和隐藏属性
+# pe = Person()
+# # print(pe.name)
+# # print(pe.__age)               #报错
+# # 第一种： 名字修改为： _类名__属性名     _Person__age
+# # print(pe._Person__age)
+# # pe._Person__age = 18
+# # print(pe._Person__age)
+# # 第二种：   在类的内部方法   正规手段
+# pe.introduce()
+
+
+# 私有属性/方法
+# 1. xxx：普通属性/方法，如果是类中定义的，则类可以在任意地方使用
+# 2. _xxx:单下划线开头，为隐藏属性，如果定义在类中，无法在外部直接访问，子类不会继承
+#         要访问只能通过间接方式，另一个py文件无法通过 from xxx import * 导入
+# 3. __xxx:单下划线开头，声明私有属性/方法，如果定义在类中，外部可以使用，子类也可以继承
+# class Person :
+#     name = 'GG'          #普通属性
+#     _age = 66            #隐藏属性
+#     __sex = '男'         #私有属性
+# pe = Person()
+# print(pe.name)
+# print(pe._age)
+# #print(pe.__sex)         #报错
+# print(pe._Person__sex)     # 使用对象._类名__属性名访问私有属性
+
+# # 私有属性/实例方法   __xxx
+# class Miss:
+#     def __play(self):           #私有方法
+#         print('玩游戏')
+#     def funa(self):            #实例方法
+#         print("实例方法")
+#         self.__play()        #调用私有方法
+# ms = Miss()
+# ms.funa()
+
+# # 隐藏属性方法： _xxx
+# class boy :
+#     def _play(self):
+#         print("天天玩游戏")
+# by = boy()
+# by._play()
+
+
+# 继承
+# 单继承
+# class father:      #定义一个父类
+#     def work(self):
+#         print("我要工作")
+#     def money(self):
+#         print('我有钱')
+# class Girl(father):      #father类的子类（继承father）
+#     pass                   #占位符，代码里类不写任何东西，会自动跳过且不会报错
+# class Boy(father):
+#     pass
+# gl = Girl()
+# gl.work()
+# gl.money()
+# by = Boy()
+# by.work()
+# by.money()
+# # 总结：子类可以继承父类的属性和方法
+
+#  多重继承（ 继承的传递）
+#  A/B/C  C（子类）继承于B（父类），B类（子类）继承A类（父类），c类具有A/B类的属性和方法
+# class Father:                  #父类
+#     def eat(self):
+#         print("吃饭")
+#     def sleep(self):
+#         print("睡觉")
+#     def play(self):
+#         print("打豆豆")
+# class son(Father):                      #father的子类
+#     pass
+# class Grandson(son):                     #son的子类
+#     pass
+# sn = son()
+# sn.eat()
+# gn = Grandson()
+# gn.sleep()
+
+# 重写父类： 在子类中定义与父类相同名称得方法
+# 覆盖父类方法：
+# class Person:             #父类
+#     def money(self):
+#         print('有一百万需继承')
+# class Man(Person):        #子类
+#     def money(self):
+#         print("赚1千万")
+#     # pass
+# man = Man()
+# man.money()
+
+# 对父类方法进行扩展：继承父类的方法，子类可以增加自己的功能
+# 1. 父类名.方法名（self）
+# 2. super().方法名（）   --推荐使用
+#  super在python里是一个特殊类，super（）是使用super类创建出来的对象
+# class Person:             #父类
+#     def money(self):
+#         print('有一百万需继承')
+#     def sleep(self):
+#         print('需要睡觉')
+# class Man(Person):        #子类
+#     # pass
+#     def money(self):
+#         # Person.money(self)
+#         # super().money()
+#         # super().sleep()
+#         super(Man, self).money()
+#         print("赚1千万")
+# man = Man()
+# man.money()
+
+# 新式类写法
+# class A： 经典类：不由任意内置类型派生出的类
+#     pass
+# class Animal:
+#     def eat(self):
+#         print('什么都吃')
+# class Dog(Animal):
+#     def shout(self):     #派生类
+#         print('汪汪')
+#         #pass            #不是派生类
+# dog = Dog()
+# dog.shout()
+
+# class A()
+# classA(object)     新式类：继承了 Object类或者该类的子类都是新式类
+# object --对象，python为所有对象提供基类（顶级父类），提供了一些内置的属性和方法，可以使用dir（）查看
+# print(dir(object))
+# python3中如果一个类没有继承任何类，那么默认继承Object类
+
+# 子类可以拥有多个父类，并且具有所有父类的属性和方法
+# class Father(object):
+#     def money(self):
+#         print('拥有100w要被继承')
+# class Mother(object):
+#     def money(self):
+#         print('拥有1000w继承')
+#     def appearance(self):
+#         print('拥有美貌被继承')
+# class Son(Mother,Father):     #子类（括号内采用就近原则）
+#     pass
+# son = Son()
+# son.money()
+# son.appearance()
+# # 有多个父类的属性和方法，有多个同名的方法，采用就近原则
+#
+# #  方法的搜索顺序
+# # python中内置的属性__mro__ 可以查看方法搜索顺序
+# print(Son.__mro__)
+
+# 重写
+# print(10+10)              #算术运算符
+# print('10'+'10')          #字符串拼接
+
+# class Animal(object):
+#     """"父类：动物类"""
+#     def shout(self):
+#         print('动物会叫')
+# class Cat(Animal):
+#     """"子类一：猫类"""
+#     def shout(self):
+#         print("喵喵~")
+# class Dog(Animal):
+#     """"子类二：狗类"""
+#     def shout(self):
+#         print('汪汪~')
+# cat =Cat()
+# cat.shout()
+# dog = Dog()
+# dog.shout()
+
+# 多态性： 一种调用方式，不同的执行结果
+class Animal(object):
+    def eat(self):
+        print('吃饭')
+
+
+class Pig(Animal):
+    def eat(self):
+        print('猪什么都吃')
+
+
+class Dog(Animal):
+    def eat(self):
+        print('狗吃肉')
+# pig = Pig()
+# pig.eat()
+# dog = Dog()
+# dog.eat()
+#  多态性：定义一个统一的接口，一个接口多种实现
+# def test(obj):
+#     obj.eat()
+# animal = Animal()
+# pig = Pig()
+# dog = Dog()
+# test(animal)
+# test(pig)
+# test(dog)
+
+# 5. 静态方法
+# 使用@staticmethod来修饰，静态方法没有self，cls参数的限制
+# 静态方法与类无关，可以被转换成为函数使用
+# class Person(object):
+#     @staticmethod      #静态方法
+#     def study(name):
+#         print(f"{name}会学习python")
+# #  静态方法可以使用对象访问，也可以使用类访问
+# Person.study('dd')
+# pe = Person()
+# pe.study('dd')     #调用是传入参数
+
+#6. 类方法
+# 使用装饰器@classmethod来标识为类方法，第一个参数必需为类对象，一般以cls为第一个参数
+# class 类名：
+#     @classmethod
+#         def 方法名（cls.形参）：
+#             方法体
+#
+# class Person(object):
+#     @classmethod
+#     def sleep(cls):
+#         print('cls:',cls)  #cls代表对象本身，类本质上就是一个对象
+#         print("在睡觉")
+# print(Person)
+# Person.sleep()
+# #  当方法中需要使用到类对象（如访问私有属性），定义类方法
+# # 类方法一般是配合类属性使用
